@@ -4,7 +4,8 @@ require_relative('./models/game.rb')
 
 get '/game/:hand1/:hand2' do
   game_play = Game.new(params[:hand1], params[:hand2])
-  return game_play.game()
+  @game_play = game_play.game()
+  erb(:results)
 end
 
 # get '/rock/paper' do
